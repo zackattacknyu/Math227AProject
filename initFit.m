@@ -12,3 +12,18 @@ maxTotalWolves = ...
 %this expression obtains most of the mean values
 meanTotalWolves = floor((maxTotalWolves+minTotalWolves)./2);
 meanTotalWolves(14)=28; %only mean value to be input manually
+
+%before and after 1991
+meanWolvesPre1991 = meanTotalWolves(1:11);
+meanWolvesPost1991 = meanTotalWolves(11:end);
+%%
+muhat = expfit(meanWolvesPre1991)
+
+xx = 0:.1:10;
+vals = meanWolvesPre1991(1).*exp(muhat.*xx);
+
+figure
+hold on
+plot(meanWolvesPre1991);
+plot(xx,vals);
+hold off
