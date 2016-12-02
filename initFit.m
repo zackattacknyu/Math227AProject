@@ -13,9 +13,11 @@ maxTotalWolves = ...
 meanTotalWolves = floor((maxTotalWolves+minTotalWolves)./2);
 meanTotalWolves(14)=28; %only mean value to be input manually
 
-%before and after 1991
+
+%before and after 1991, mean
 meanWolvesPre1991 = meanTotalWolves(1:11);
 meanWolvesPost1991 = meanTotalWolves(11:end);
+
 %%
 
 tVals = (0:10)';
@@ -38,7 +40,7 @@ yyPlot2 = n0post91.*exp(rValuePost91.*xxPlot);
 %plot the pre-1991 data
 figure
 hold on
-plot(tValsPre1991,meanWolvesPre1991,'b.');
+plot(tVals,meanWolvesPre1991,'b.');
 plot(xxPlot,yyPlot,'r-');
 axis([0 11 0 11]);
 legend('Mean Wolf Numbers','Exponential Fit Model');
@@ -50,10 +52,25 @@ hold off
 %plot the pre-1991 data
 figure
 hold on
-plot(tValsPost1991,meanWolvesPost1991,'b.');
+plot(tVals,meanWolvesPost1991,'b.');
 plot(xxPlot,yyPlot2,'r-');
 axis([0 11 0 100]);
 legend('Mean Wolf Numbers','Exponential Fit Model');
+xlabel('Years Since 1990');
+ylabel('Mean Number of Wolves');
+title('Mean Number of Wolves over Time before 1991');
+hold off
+%%
+
+figure
+hold on
+plot(tVals,meanWolvesPre1991,'rx');
+plot(tVals,meanWolvesPost1991,'g.');
+plot(xxPlot,yyPlot,'r-');
+plot(xxPlot,yyPlot2,'g-');
+axis([0 11 0 100]);
+legend('Mean Wolf Numbers (since 1980)','Mean Wolf Numbers (since 1990)',...
+    'Exponential Fit Model for pre-1991','Exponential Fit Model for post-1991');
 xlabel('Years Since 1990');
 ylabel('Mean Number of Wolves');
 title('Mean Number of Wolves over Time before 1991');
