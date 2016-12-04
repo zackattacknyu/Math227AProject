@@ -75,3 +75,44 @@ xlabel('Years Since 1990');
 ylabel('Mean Number of Wolves');
 title('Mean Number of Wolves over Time before 1991');
 hold off
+%%
+
+%starting it at the winter of 1991-1992
+meanWolvesPost1991 = meanTotalWolves(12:end);
+tVals = (0:9)';
+ffPost91 = fit(tVals,meanWolvesPost1991','exp1');
+n0post91 = ffPost91.a; %initial population
+
+%reproductive fitness coeff. r = bb-dd where
+%   bb is birth rate, dd is death rate
+rValuePost91 = ffPost91.b; 
+
+xxPlot = (0:0.01:9);
+yyPlot2 = n0post91.*exp(rValuePost91.*xxPlot);
+
+%plot the post-1991 data
+figure
+hold on
+plot(tVals,meanWolvesPost1991,'b.');
+plot(xxPlot,yyPlot2,'r-');
+axis([0 11 0 100]);
+legend('Mean Wolf Numbers','Exponential Fit Model');
+xlabel('Years Since 1990');
+ylabel('Mean Number of Wolves');
+title('Mean Number of Wolves over Time before 1991');
+hold off
+
+%%
+
+
+%{
+
+NOTE:
+
+SHOULD DO THE FOLLOWING
+- TREAT 1980-1991 AS ONE PERIOD
+- DURING 1991, IMMIGRATION AND OTHER DIFFICULT TO MODEL EVENTS HAPPENED
+-   THE SYSTEM ALSO CHANGED IN THAT TIME PERIOD
+- THUS I WILL TREAT WINTER 1991-PRESENT AS COMPLETELY NEW TIME PERIOD
+
+%}

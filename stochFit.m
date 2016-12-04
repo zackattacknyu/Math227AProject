@@ -20,69 +20,47 @@ meanWolvesPost1991 = meanTotalWolves(11:end);
 
 %%
 
-deltaNbyState = [-1 1];
+%Pre 1991 Data
 numSteps = 50;
-numTraj = 50; 
-times = zeros(numTraj,numSteps); %time point
-numWolves = zeros(numTraj,numSteps); %current state at each point
-
-%random initial number between the min and max estimates
-numWolves(:,1) = floor(rand(numTraj,1)*5 + 2); 
-
-%numWolves(:,1) = 10; %to reproduce book example
-
-times(:,1) = 0;
-
+numTraj = 20; 
 rValue = 0.0789; %from exponential fit model
+deathRate = 0.1; %TO CHOOSE OURSELVES
+birthRate = rValue+deathRate; %calculate the birth rate so that b-d=r
 
-%TO CHOOSE OURSELVES
-deathRate = 0.2;
+initNum = floor(rand(numTraj,1)*5 + 2); 
 
-%calculate the birth rate so that b-d=r
-birthRate = rValue+deathRate;
+[times,numWolves] = runStochBirthDeath(birthRate,deathRate,initNum,numSteps,numTraj);
 
-for j = 1:numTraj
-    
-    curT = 0;
-    curN = numWolves(1,1);
-    
-    for i = 2:numSteps
-
-        %3 events are 1 birth, 1 death, no change
-        %   probs from (5.57) in 5.6.2 of de Vries book
-        probBirth = birthRate*curN;
-        probDeath = deathRate*curN;
-
-        %lambdaBar to use to sample time to transition
-        lambdaBar = probBirth+probDeath+probNoChange;
-
-        %sample time from exponential dist
-        sampledT = sampleFromDist(lambdaBar,1);
-        curT = curT + sampledT;
-
-        %get uniform sample
-        sampledR = rand(1);
-
-        %put it in 0 to lambdaBar range
-        sampledLambda = sampledR*lambdaBar;
-
-        %find which state that value corresponds to
-        curOption = find(cumsum([probDeath probBirth])>sampledLambda,1,'first');
-
-        changeN = deltaNbyState(curOption);
-        curN = curN + changeN;
-
-        numWolves(j,i) = curN;
-        times(j,i) = curT;
-        
-        if(curN<1)
-            break
-        end
-
-    end
-
-end
+tVals = 0:10;
+yInds = 1:11;
 
 figure
+hold on
 stairs(times',numWolves')
+plot(tVals,minTotalWolves(yInds),'r','LineWidth',2)
+plot(tVals,meanTotalWolves(yInds),'r--','LineWidth',2)
+plot(tVals,maxTotalWolves(yInds),'r','LineWidth',2)
 axis([0 10 0 inf]);
+%%
+%Post 1991 Data
+numSteps = 200;
+numTraj = 20; 
+rValue = 0.1773; %from exponential fit model
+deathRate = 0.2; %TO CHOOSE OURSELVES
+%birthRate = 0.34;
+birthRate = rValue+deathRate; %calculate the birth rate so that b-d=r
+
+initNum = 18.*ones(numTraj,1); %min, max, and mean were 8 in 1990-1991
+
+[times,numWolves] = runStochBirthDeath(birthRate,deathRate,initNum,numSteps,numTraj);
+
+tVals = 0:9;
+yInds = 12:21;
+
+figure
+hold on
+stairs(times',numWolves')
+plot(tVals,minTotalWolves(yInds),'r','LineWidth',2)
+plot(tVals,meanTotalWolves(yInds),'r--','LineWidth',2)
+plot(tVals,maxTotalWolves(yInds),'r','LineWidth',2)
+axis([0 10 0 maxTotalWolves(end)]);
