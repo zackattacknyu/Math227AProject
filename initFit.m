@@ -49,7 +49,7 @@ ylabel('Mean Number of Wolves');
 title('Mean Number of Wolves over Time before 1991');
 hold off
 
-%plot the pre-1991 data
+%plot the post-1991 data
 figure
 hold on
 plot(tVals,meanWolvesPost1991,'b.');
