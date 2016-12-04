@@ -22,10 +22,14 @@ meanWolvesPost1991 = meanTotalWolves(11:end);
 
 %Pre 1991 Data
 numSteps = 50;
-numTraj = 20; 
-rValue = 0.0789; %from exponential fit model
-deathRate = 0.1; %TO CHOOSE OURSELVES
-birthRate = rValue+deathRate; %calculate the birth rate so that b-d=r
+numTraj = 400; 
+%rValue = 0.0789; %from exponential fit model
+%deathRate = 0.25; 
+%birthRate = rValue+deathRate; %calculate the birth rate so that b-d=r
+
+%make note of these values. KEEP THEM. 
+birthRate = 0.060;
+deathRate = 0.045;
 
 initNum = floor(rand(numTraj,1)*5 + 2); 
 
@@ -44,11 +48,15 @@ axis([0 10 0 inf]);
 %%
 %Post 1991 Data
 numSteps = 200;
-numTraj = 20; 
-rValue = 0.1773; %from exponential fit model
-deathRate = 0.2; %TO CHOOSE OURSELVES
-%birthRate = 0.34;
-birthRate = rValue+deathRate; %calculate the birth rate so that b-d=r
+numTraj = 400; 
+
+%rValue = 0.1704; %from exponential fit model
+%deathRate = 0.2; %TO CHOOSE OURSELVES
+%birthRate = rValue+deathRate; %calculate the birth rate so that b-d=r
+
+%make note of these valus. KEEP THEM. 
+deathRate=0.03;
+birthRate=0.23;
 
 initNum = 18.*ones(numTraj,1); %min, max, and mean were 8 in 1990-1991
 
