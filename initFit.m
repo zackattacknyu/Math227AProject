@@ -36,6 +36,21 @@ yyPlot = n0pre91.*exp(rValuePre91.*xxPlot);
 xxPlot2 = (0:0.01:9);
 yyPlot2 = n0post91.*exp(rValuePost91.*xxPlot2);
 
+xxPlot3 = (0:0.01:20);
+yyPlot3 = n0pre91.*exp(rValuePre91.*xxPlot3);
+
+immBeta = 0.5;
+immBeta2 = 1;
+immBeta3 = 2;
+meanWolvesIn1990 = 8;
+yyPlot3Imm = meanWolvesIn1990.*exp(rValuePre91.*(xxPlot3-10)) + ...
+    (immBeta/rValuePre91).*exp(rValuePre91.*(xxPlot3-10)) - immBeta/rValuePre91;
+yyPlot3Imm2 = meanWolvesIn1990.*exp(rValuePre91.*(xxPlot3-10)) + ...
+    (immBeta2/rValuePre91).*exp(rValuePre91.*(xxPlot3-10)) - immBeta2/rValuePre91;
+yyPlot3Imm3 = meanWolvesIn1990.*exp(rValuePre91.*(xxPlot3-10)) + ...
+    (immBeta3/rValuePre91).*exp(rValuePre91.*(xxPlot3-10)) - immBeta3/rValuePre91;
+
+
 %plot the pre-1991 data
 figure
 hold on
@@ -75,6 +90,19 @@ ylabel('Mean Number of Wolves');
 title('Mean Number of Wolves over Time before 1991');
 hold off
 
+figure
+hold on
+plot(0:20,meanTotalWolves,'b.');
+plot(xxPlot3,yyPlot3,'r-');
+plot(xxPlot3,yyPlot3Imm,'g-');
+plot(xxPlot3,yyPlot3Imm2,'g--');
+plot(xxPlot3,yyPlot3Imm3,'k--');
+axis([0 20 0 100]);
+legend('Mean Wolf Numbers','Exponential Fit Model');
+xlabel('Years Since 1980');
+ylabel('Mean Number of Wolves');
+title('Mean Number of Wolves over Time before 1991');
+hold off
 
 %{
 
@@ -87,29 +115,4 @@ SHOULD DO THE FOLLOWING
 - THUS I WILL TREAT WINTER 1991-PRESENT AS COMPLETELY NEW TIME PERIOD
 
 
-EXTRA CODE (DO NOT USE);
-%starting it at the winter of 1991-1992
-meanWolvesPost1991 = meanTotalWolves(12:end);
-tVals = (0:9)';
-ffPost91 = fit(tVals,meanWolvesPost1991','exp1');
-n0post91 = ffPost91.a; %initial population
-
-%reproductive fitness coeff. r = bb-dd where
-%   bb is birth rate, dd is death rate
-rValuePost91 = ffPost91.b; 
-
-xxPlot = (0:0.01:9);
-yyPlot2 = n0post91.*exp(rValuePost91.*xxPlot);
-
-%plot the post-1991 data
-figure
-hold on
-plot(tVals,meanWolvesPost1991,'b.');
-plot(xxPlot,yyPlot2,'r-');
-axis([0 11 0 100]);
-legend('Mean Wolf Numbers','Exponential Fit Model');
-xlabel('Years Since 1990');
-ylabel('Mean Number of Wolves');
-title('Mean Number of Wolves over Time before 1991');
-hold off
 %}
