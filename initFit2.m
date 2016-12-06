@@ -41,6 +41,12 @@ yyPlot = n0pre91.*exp(rValuePre91.*xxPlot);
 xxPlot2 = (0:0.01:9);
 yyPlot2 = n0post91.*exp(rValuePost91.*xxPlot2);
 
+xxPlotA = (0:0.01:10);
+yyPlotA = n0pre91.*exp(rValuePre91.*xxPlotA);
+
+xxPlot2A = (11:0.01:20);
+yyPlot2A = n0post91.*exp(rValuePost91.*(xxPlot2A-11));
+
 xxPlot3 = (0:0.01:20);
 yyPlot3 = n0pre91.*exp(rValuePre91.*xxPlot3);
 
@@ -83,6 +89,18 @@ ylabel('Mean Number of Wolves');
 title('Mean Number of Wolves over Time before 1991');
 hold off
 
+%plot all data
+figure
+hold on
+plot(tValsAll,meanTotalWolves,'b.');
+plot(xxPlotA,yyPlotA,'g-');
+plot(xxPlot2A,yyPlot2A,'r-');
+axis([0 20 0 100]);
+legend('Mean Wolf Numbers','Exponential Fit Model');
+xlabel('Years Since 1980');
+ylabel('Mean Number of Wolves');
+title('Mean Number of Wolves over Time before 1991');
+hold off
 
 figure
 hold on
