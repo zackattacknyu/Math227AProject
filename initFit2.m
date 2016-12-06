@@ -25,14 +25,15 @@ tValsPost91 = (0:9)';
 ffPost91 = fit(tValsPost91,meanWolvesPost1991','exp1');
 n0post91 = ffPost91.a; %initial population
 
-tValsPost91 = (0:9)';
-ffPost91 = fit(tValsPost91,meanWolvesPost1991','exp1');
-n0post91 = ffPost91.a; %initial population
+tValsAll = (0:20)';
+ffAll = fit(tValsAll,meanTotalWolves','exp1');
+n0All = ffAll.a; %initial population
 
 %reproductive fitness coeff. r = bb-dd where
 %   bb is birth rate, dd is death rate
 rValuePre91 = ffPre91.b; 
 rValuePost91 = ffPost91.b; 
+rValueAll = ffAll.b;
 
 xxPlot = (0:0.01:10);
 yyPlot = n0pre91.*exp(rValuePre91.*xxPlot);
@@ -42,6 +43,9 @@ yyPlot2 = n0post91.*exp(rValuePost91.*xxPlot2);
 
 xxPlot3 = (0:0.01:20);
 yyPlot3 = n0pre91.*exp(rValuePre91.*xxPlot3);
+
+xxPlot4 = (0:0.01:20);
+yyPlot4 = n0All.*exp(rValueAll.*xxPlot4);
 
 immBeta = 0.5;
 immBeta2 = 1;
@@ -101,6 +105,17 @@ plot(xxPlot3,yyPlot3,'r-');
 plot(xxPlot3,yyPlot3Imm,'g-');
 plot(xxPlot3,yyPlot3Imm2,'g--');
 plot(xxPlot3,yyPlot3Imm3,'k--');
+axis([0 20 0 100]);
+legend('Mean Wolf Numbers','Exponential Fit Model');
+xlabel('Years Since 1980');
+ylabel('Mean Number of Wolves');
+title('Mean Number of Wolves over Time before 1991');
+hold off
+
+figure
+hold on
+plot(0:20,meanTotalWolves,'b.');
+plot(xxPlot4,yyPlot4,'r-');
 axis([0 20 0 100]);
 legend('Mean Wolf Numbers','Exponential Fit Model');
 xlabel('Years Since 1980');
