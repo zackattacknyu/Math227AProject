@@ -46,6 +46,36 @@ plot(tVals,maxTotalWolves(yInds),'k','LineWidth',3)
 xlabel('Years since winter 1980-1981');
 ylabel('Number of Wolves');
 axis([0 20 0 inf]);
+
+%%
+
+%Pre 1991 Data
+numSteps = 200;
+numTraj = 600; 
+
+%make note of these values. KEEP THEM. 
+birthRate = 0.165;
+deathRate = 0.01;
+
+initNum = floor(rand(numTraj,1)*5 + 2); 
+
+[times,numWolves] = runStochBirthDeath(birthRate,deathRate,initNum,numSteps,numTraj);
+
+%Post 1991 Data using pre-1991 info
+
+tVals = 0:20;
+yInds = 1:21;
+
+figure
+hold on
+stairs(times',numWolves')
+plot(tVals,minTotalWolves(yInds),'k','LineWidth',3)
+plot(tVals,meanTotalWolves(yInds),'k--','LineWidth',3)
+plot(tVals,maxTotalWolves(yInds),'k','LineWidth',3)
+xlabel('Years since winter 1980-1981');
+ylabel('Number of Wolves');
+axis([0 20 0 80]);
+
 %%
 
 %now include immigration in post-1991 data
