@@ -13,4 +13,6 @@ initNum = 10.*ones(numTraj,1);
 
 figure
 stairs(times',numWolves')
+xlabel('t');
+ylabel('N');
 axis([0 9 0 inf]);

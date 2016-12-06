@@ -55,7 +55,7 @@ yyPlot4 = n0All.*exp(rValueAll.*xxPlot4);
 
 immBeta = 0.5;
 immBeta2 = 1;
-immBeta3 = 2;
+immBeta3 = 2.5;
 meanWolvesIn1990 = 8;
 yyPlot3Imm = meanWolvesIn1990.*exp(rValuePre91.*(xxPlot3-10)) + ...
     (immBeta/rValuePre91).*exp(rValuePre91.*(xxPlot3-10)) - immBeta/rValuePre91;
@@ -64,31 +64,6 @@ yyPlot3Imm2 = meanWolvesIn1990.*exp(rValuePre91.*(xxPlot3-10)) + ...
 yyPlot3Imm3 = meanWolvesIn1990.*exp(rValuePre91.*(xxPlot3-10)) + ...
     (immBeta3/rValuePre91).*exp(rValuePre91.*(xxPlot3-10)) - immBeta3/rValuePre91;
 
-
-%plot the pre-1991 data
-figure
-hold on
-plot(tValsPre91,meanWolvesPre1991,'b.');
-plot(xxPlot,yyPlot,'r-');
-axis([0 11 0 11]);
-legend('Mean Wolf Numbers','Exponential Fit Model');
-xlabel('Years Since 1980');
-ylabel('Mean Number of Wolves');
-title('Mean Number of Wolves over Time before 1991');
-hold off
-
-%plot the post-1991 data
-figure
-hold on
-plot(tValsPost91,meanWolvesPost1991,'b.');
-plot(xxPlot2,yyPlot2,'r-');
-axis([0 10 0 100]);
-legend('Mean Wolf Numbers','Exponential Fit Model');
-xlabel('Years Since 1990');
-ylabel('Mean Number of Wolves');
-title('Mean Number of Wolves over Time before 1991');
-hold off
-
 %plot all data
 figure
 hold on
@@ -96,50 +71,24 @@ plot(tValsAll,meanTotalWolves,'b.');
 plot(xxPlotA,yyPlotA,'g-');
 plot(xxPlot2A,yyPlot2A,'r-');
 axis([0 20 0 100]);
-legend('Mean Wolf Numbers','Exponential Fit Model');
-xlabel('Years Since 1980');
+legend('Wolf Population Data','Exponential Fit For Pre-1991 Data',...
+    'Exponential Fit For Post-1991 Data');
+xlabel('Years Since Winter 1980-1981');
 ylabel('Mean Number of Wolves');
-title('Mean Number of Wolves over Time before 1991');
-hold off
-
-figure
-hold on
-plot(tValsPre91,meanWolvesPre1991,'rx');
-plot(tValsPost91,meanWolvesPost1991,'g.');
-plot(xxPlot,yyPlot,'r-');
-plot(xxPlot2,yyPlot2,'g-');
-axis([0 11 0 100]);
-legend('Mean Wolf Numbers (since 1980)','Mean Wolf Numbers (since 1990)',...
-    'Exponential Fit Model for pre-1991','Exponential Fit Model for post-1991');
-xlabel('Years Since 1990');
-ylabel('Mean Number of Wolves');
-title('Mean Number of Wolves over Time before 1991');
 hold off
 
 figure
 hold on
 plot(0:20,meanTotalWolves,'b.');
 plot(xxPlot3,yyPlot3,'r-');
-plot(xxPlot3,yyPlot3Imm,'g-');
-plot(xxPlot3,yyPlot3Imm2,'g--');
 plot(xxPlot3,yyPlot3Imm3,'k--');
 axis([0 20 0 100]);
-legend('Mean Wolf Numbers','Exponential Fit Model');
+legend('Wolf Population Data','Model prediction where r from pre-1991 data, beta=0',...
+    'Model prediction where r from pre-1991 Data, beta=2.5');
 xlabel('Years Since 1980');
 ylabel('Mean Number of Wolves');
-title('Mean Number of Wolves over Time before 1991');
 hold off
 
-figure
-hold on
-plot(0:20,meanTotalWolves,'b.');
-plot(xxPlot4,yyPlot4,'r-');
-axis([0 20 0 100]);
-legend('Mean Wolf Numbers','Exponential Fit Model');
-xlabel('Years Since 1980');
-ylabel('Mean Number of Wolves');
-title('Mean Number of Wolves over Time before 1991');
-hold off
 
 %{
 
