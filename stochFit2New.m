@@ -49,17 +49,20 @@ axis([0 20 0 inf]);
 %%
 
 %now include immigration in post-1991 data
-immRate = 2;
+immRate = 2.5;
+initNum=8;
 
 [times2,numWolves2] = runStochBirthDeathImmigration(birthRate,deathRate,immRate,...
     initNum,numSteps,numTraj);
 
-tVals = 0:20;
-yInds = 1:21;
+tVals = 0:10;
+yInds = 11:21;
 figure
 hold on
 stairs(times2',numWolves2')
-plot(tVals,minTotalWolves(yInds),'r','LineWidth',2)
-plot(tVals,meanTotalWolves(yInds),'r--','LineWidth',2)
-plot(tVals,maxTotalWolves(yInds),'r','LineWidth',2)
-axis([0 20 0 inf]);
+plot(tVals,minTotalWolves(yInds),'k','LineWidth',3)
+plot(tVals,meanTotalWolves(yInds),'k--','LineWidth',3)
+plot(tVals,maxTotalWolves(yInds),'k','LineWidth',3)
+xlabel('Years since Winter 1990-1991');
+ylabel('Number of Wolves');
+axis([0 10 0 inf]);
