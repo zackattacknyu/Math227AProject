@@ -54,8 +54,8 @@ xxPlot4 = (0:0.01:20);
 yyPlot4 = n0All.*exp(rValueAll.*xxPlot4);
 
 immBeta = 0.5;
-immBeta2 = 1;
-immBeta3 = 2.5;
+immBeta2 = 2.5;
+immBeta3 = 4.75;
 meanWolvesIn1990 = 8;
 yyPlot3Imm = meanWolvesIn1990.*exp(rValuePre91.*(xxPlot3-10)) + ...
     (immBeta/rValuePre91).*exp(rValuePre91.*(xxPlot3-10)) - immBeta/rValuePre91;
@@ -81,11 +81,13 @@ figure
 hold on
 plot(0:20,meanTotalWolves,'b.');
 plot(xxPlot3,yyPlot3,'r-');
+plot(xxPlot3,yyPlot3Imm2,'g--');
 plot(xxPlot3,yyPlot3Imm3,'k--');
 axis([0 20 0 100]);
-legend('Wolf Population Data','Model prediction where r from pre-1991 data, beta=0',...
-    'Model prediction where r from pre-1991 Data, beta=2.5');
-xlabel('Years Since 1980');
+legend('Wolf Population Data','Model prediction, r from pre-1991 data, beta=0',...
+    'Model prediction, r from pre-1991 Data, beta=2.5',...
+    'Model prediction, r from pre-1991 Data, beta=4.75');
+xlabel('Years Since Winter 1980-1981');
 ylabel('Mean Number of Wolves');
 hold off
 
