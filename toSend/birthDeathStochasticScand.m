@@ -46,7 +46,6 @@ xlabel('Years since winter 1980-1981');
 ylabel('Number of Wolves');
 axis([0 20 0 inf]);
 
-
 %Display the pre-1991 results for first 10 years
 tVals = 0:10;
 yInds = 1:11;
@@ -58,7 +57,7 @@ plot(tVals,meanTotalWolves(yInds),'k--','LineWidth',3)
 plot(tVals,maxTotalWolves(yInds),'k','LineWidth',3)
 xlabel('Years since winter 1980-1981');
 ylabel('Number of Wolves');
-axis([0 10 0 inf]);
+axis([0 10 0 20]);
 
 %{
 This runs the simulation starting from
