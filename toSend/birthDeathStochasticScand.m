@@ -1,7 +1,10 @@
-%here is the Scandanavian wolf data
+%{
+This runs the stochastic models for the Scandinavian wolves
+%}
+
+%Scandanavian wolf data
 winterYearStart = 1980:2000;
 winterYearEnd = winterYearStart+1;
-
 minTotalWolves = ...
     [2 3 3 8 6 7 5 6 10 8 8 16 19 ...
     16 29 34 41 50 62 67 87];
@@ -18,7 +21,7 @@ meanTotalWolves(14)=28; %only mean value to be input manually
 meanWolvesPre1991 = meanTotalWolves(1:11);
 meanWolvesPost1991 = meanTotalWolves(11:end);
 
-%%
+
 
 %Pre 1991 Data
 numSteps = 100;
@@ -47,36 +50,6 @@ xlabel('Years since winter 1980-1981');
 ylabel('Number of Wolves');
 axis([0 20 0 inf]);
 
-%%
-
-%Pre 1991 Data
-numSteps = 200;
-numTraj = 600; 
-
-%make note of these values. KEEP THEM. 
-birthRate = 0.165;
-deathRate = 0.01;
-
-initNum = floor(rand(numTraj,1)*5 + 2); 
-
-[times,numWolves] = runStochBirthDeath(birthRate,deathRate,initNum,numSteps,numTraj);
-
-%Post 1991 Data using pre-1991 info
-
-tVals = 0:20;
-yInds = 1:21;
-
-figure
-hold on
-stairs(times',numWolves')
-plot(tVals,minTotalWolves(yInds),'k','LineWidth',3)
-plot(tVals,meanTotalWolves(yInds),'k--','LineWidth',3)
-plot(tVals,maxTotalWolves(yInds),'k','LineWidth',3)
-xlabel('Years since winter 1980-1981');
-ylabel('Number of Wolves');
-axis([0 20 0 80]);
-
-%%
 
 %now include immigration in post-1991 data
 immRate = 2.5;
@@ -96,3 +69,27 @@ plot(tVals,maxTotalWolves(yInds),'k','LineWidth',3)
 xlabel('Years since Winter 1990-1991');
 ylabel('Number of Wolves');
 axis([0 10 0 inf]);
+
+%Post 1991 Data
+numSteps = 200;
+numTraj = 400; 
+
+deathRate=0.01;
+birthRate=0.21;
+
+initNum = 18.*ones(numTraj,1); %min, max, and mean were 18 in 1991-1992
+
+[times,numWolves] = runStochBirthDeath(birthRate,deathRate,initNum,numSteps,numTraj);
+
+tVals = 0:9;
+yInds = 12:21;
+
+figure
+hold on
+stairs(times',numWolves')
+plot(tVals,minTotalWolves(yInds),'k','LineWidth',3)
+plot(tVals,meanTotalWolves(yInds),'k--','LineWidth',3)
+plot(tVals,maxTotalWolves(yInds),'k','LineWidth',3)
+xlabel('Time Since Winter 1991-1992');
+ylabel('Number of Wolves');
+axis([0 10 0 maxTotalWolves(end)]);
