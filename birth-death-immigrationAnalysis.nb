@@ -10,168 +10,121 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     54596,       1218]
-NotebookOptionsPosition[     53586,       1178]
-NotebookOutlinePosition[     53930,       1193]
-CellTagsIndexPosition[     53887,       1190]
+NotebookDataLength[     51245,       1114]
+NotebookOptionsPosition[     50649,       1089]
+NotebookOutlinePosition[     50993,       1104]
+CellTagsIndexPosition[     50950,       1101]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+  "This", " ", "notebook", " ", "produces", " ", "the", " ", "phase", " ", 
+   "diagrams", " ", "and", " ", "bifurcation", " ", "plots", " ", "from", " ",
+    "the", " ", "paper"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.690229529903138*^9, 3.690229546409568*^9}}],
 
 Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", 
-   RowBox[{"Phase", " ", "Diagram", " ", "Plot"}], "*)"}], 
-  "\[IndentingNewLine]", 
-  RowBox[{"Manipulate", "[", 
    RowBox[{
-    RowBox[{"Plot", "[", 
-     RowBox[{
+    RowBox[{
+    "Phase", " ", "Diagrams", " ", "for", " ", "the", " ", "different", " ", 
+     "r"}], ",", 
+    RowBox[{"beta", " ", "combinations"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"rr1", " ", "=", " ", "1"}], ";", " ", 
+    RowBox[{"bbeta1", " ", "=", " ", "1"}], ";", " ", 
+    RowBox[{"plt1", " ", "=", " ", 
+     RowBox[{"Plot", "[", 
       RowBox[{
-       RowBox[{"r", "*", "P"}], "+", "beta"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"P", ",", "0", ",", "20"}], "}"}]}], "]"}], ",", 
-    RowBox[{"{", 
-     RowBox[{"r", ",", 
-      RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
-    RowBox[{"{", 
-     RowBox[{"beta", ",", 
-      RowBox[{"-", "3"}], ",", "3"}], "}"}]}], "]"}]}]], "Input",
- CellChangeTimes->{{3.6899989627671795`*^9, 3.689998996141088*^9}}],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`beta$$ = -1.18, $CellContext`r$$ = 0.25, 
-    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
-      Hold[$CellContext`r$$], -1, 1}, {
-      Hold[$CellContext`beta$$], -3, 3}}, Typeset`size$$ = {
-    360., {107., 114.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`r$9979$$ = 
-    0, $CellContext`beta$9980$$ = 0}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     1, StandardForm, 
-      "Variables" :> {$CellContext`beta$$ = -3, $CellContext`r$$ = -1}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`r$$, $CellContext`r$9979$$, 0], 
-        Hold[$CellContext`beta$$, $CellContext`beta$9980$$, 0]}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, "Body" :> 
-      Plot[$CellContext`r$$ $CellContext`P + $CellContext`beta$$, \
-{$CellContext`P, 0, 20}], 
-      "Specifications" :> {{$CellContext`r$$, -1, 
-         1}, {$CellContext`beta$$, -3, 3}}, "Options" :> {}, 
-      "DefaultOptions" :> {}],
-     ImageSizeCache->{411., {175., 182.}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{3.689998996764124*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"rr1", " ", "=", " ", "1"}], ";", " ", 
-  RowBox[{"bbeta1", " ", "=", " ", "1"}], ";", " ", 
-  RowBox[{"plt1", " ", "=", " ", 
-   RowBox[{"Plot", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"rr1", "*", "P"}], "+", "bbeta1"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"P", ",", "0", ",", "5"}], "}"}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"0", ",", "6"}], "}"}]}], ",", 
-     RowBox[{"AxesLabel", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"P", ",", 
-        RowBox[{"P", "'"}]}], "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<r>0, beta>0\>\""}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"rr2", " ", "=", " ", "1"}], ";", " ", 
-  RowBox[{"bbeta2", " ", "=", " ", 
-   RowBox[{"-", "1"}]}], ";", 
-  RowBox[{"plt2", " ", "=", " ", 
-   RowBox[{"Plot", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"rr2", "*", "P"}], "+", "bbeta2"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"P", ",", "0", ",", "5"}], "}"}], ",", 
-     RowBox[{"AxesLabel", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"P", ",", 
-        RowBox[{"P", "'"}]}], "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<r>0, beta<0\>\""}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"rr3", " ", "=", " ", 
-   RowBox[{"-", "1"}]}], ";", " ", 
-  RowBox[{"bbeta3", " ", "=", " ", "1"}], ";", " ", 
-  RowBox[{"plt3", " ", "=", " ", 
-   RowBox[{"Plot", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"rr3", "*", "P"}], "+", "bbeta3"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"P", ",", "0", ",", "5"}], "}"}], ",", 
-     RowBox[{"AxesLabel", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"P", ",", 
-        RowBox[{"P", "'"}]}], "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<r<0, beta>0\>\""}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"rr4", " ", "=", " ", 
-   RowBox[{"-", "1"}]}], ";", " ", 
-  RowBox[{"bbeta4", " ", "=", " ", 
-   RowBox[{"-", "1"}]}], ";", 
-  RowBox[{"plt4", " ", "=", " ", 
-   RowBox[{"Plot", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"rr4", "*", "P"}], "+", "bbeta4"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"P", ",", "0", ",", "5"}], "}"}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", 
-      RowBox[{"{", 
        RowBox[{
-        RowBox[{"-", "5"}], ",", "1"}], "}"}]}], ",", 
-     RowBox[{"AxesLabel", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"P", ",", 
-        RowBox[{"P", "'"}]}], "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<r<0, beta<0\>\""}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{"Show", "[", 
-  RowBox[{"GraphicsGrid", "[", 
-   RowBox[{"{", 
-    RowBox[{
+        RowBox[{"rr1", "*", "P"}], "+", "bbeta1"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"P", ",", "0", ",", "5"}], "}"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "6"}], "}"}]}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"P", ",", 
+          RowBox[{"P", "'"}]}], "}"}]}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<r>0, beta>0\>\""}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rr2", " ", "=", " ", "1"}], ";", " ", 
+    RowBox[{"bbeta2", " ", "=", " ", 
+     RowBox[{"-", "1"}]}], ";", 
+    RowBox[{"plt2", " ", "=", " ", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"rr2", "*", "P"}], "+", "bbeta2"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"P", ",", "0", ",", "5"}], "}"}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"P", ",", 
+          RowBox[{"P", "'"}]}], "}"}]}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<r>0, beta<0\>\""}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rr3", " ", "=", " ", 
+     RowBox[{"-", "1"}]}], ";", " ", 
+    RowBox[{"bbeta3", " ", "=", " ", "1"}], ";", " ", 
+    RowBox[{"plt3", " ", "=", " ", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"rr3", "*", "P"}], "+", "bbeta3"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"P", ",", "0", ",", "5"}], "}"}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"P", ",", 
+          RowBox[{"P", "'"}]}], "}"}]}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<r<0, beta>0\>\""}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"rr4", " ", "=", " ", 
+     RowBox[{"-", "1"}]}], ";", " ", 
+    RowBox[{"bbeta4", " ", "=", " ", 
+     RowBox[{"-", "1"}]}], ";", 
+    RowBox[{"plt4", " ", "=", " ", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"rr4", "*", "P"}], "+", "bbeta4"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"P", ",", "0", ",", "5"}], "}"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "5"}], ",", "1"}], "}"}]}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"P", ",", 
+          RowBox[{"P", "'"}]}], "}"}]}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<r<0, beta<0\>\""}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Show", "[", 
+    RowBox[{"GraphicsGrid", "[", 
      RowBox[{"{", 
-      RowBox[{"plt1", ",", "plt2"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"plt3", ",", "plt4"}], "}"}]}], "}"}], "]"}], "]"}]}], "Input",
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"plt1", ",", "plt2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"plt3", ",", "plt4"}], "}"}]}], "}"}], "]"}], 
+    "]"}]}]}]], "Input",
  CellChangeTimes->{{3.6900036514363556`*^9, 3.690003827243411*^9}, {
   3.6900038662836447`*^9, 3.6900038690998054`*^9}, {3.690003908571063*^9, 
-  3.6900039583949127`*^9}, {3.6900040012103615`*^9, 3.6900040868252583`*^9}}],
+  3.6900039583949127`*^9}, {3.6900040012103615`*^9, 3.6900040868252583`*^9}, {
+  3.690229517481192*^9, 3.6902295262115345`*^9}}],
 
 Cell[BoxData[
  GraphicsBox[{{}, {{InsetBox[
@@ -439,21 +392,7 @@ BHfN9H/qmuRh4n84kHIb/gcD3GIU
   PlotRangePadding->{6, 5}]], "Output",
  CellChangeTimes->{{3.6900038098174148`*^9, 3.690003828485482*^9}, 
    3.6900038694998283`*^9, {3.6900039107661886`*^9, 3.690003958971946*^9}, 
-   3.6900040137040763`*^9, 3.6900040939556665`*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Export", "[", 
-  RowBox[{
-  "\"\<C:\\\\dev\\\\git\\\\Math227AProject\\\\detModelFigs\\\\phaseDiagrams.\
-png\>\"", ",", "%109", ",", "\"\<PNG\>\""}], "]"}]], "Input",
- NumberMarks->False],
-
-Cell[BoxData["\<\"C:\\\\dev\\\\git\\\\Math227AProject\\\\detModelFigs\\\\\
-phaseDiagrams.png\"\>"], "Output",
- CellChangeTimes->{3.690004165573763*^9}]
+   3.6900040137040763`*^9, 3.6900040939556665`*^9, 3.6902295820791836`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -861,22 +800,8 @@ GWMUCQ==
  CellChangeTimes->{
   3.6899992799243193`*^9, 3.6899993200606155`*^9, 3.6899994623647547`*^9, {
    3.6899996211638374`*^9, 3.6899996400169153`*^9}, 3.6899996811332674`*^9, 
-   3.6899997273459105`*^9, 3.689999771543439*^9, 3.690004273544938*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Export", "[", 
-  RowBox[{
-  "\"\<C:\\\\dev\\\\git\\\\Math227AProject\\\\detModelFigs\\\\\
-bifurcationPlotBeta.png\>\"", ",", "%118", ",", "\"\<PNG\>\""}], 
-  "]"}]], "Input",
- NumberMarks->False],
-
-Cell[BoxData["\<\"C:\\\\dev\\\\git\\\\Math227AProject\\\\detModelFigs\\\\\
-bifurcationPlotBeta.png\"\>"], "Output",
- CellChangeTimes->{3.6900044086786675`*^9}]
+   3.6899997273459105`*^9, 3.689999771543439*^9, 3.690004273544938*^9, 
+   3.690229586684621*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1158,22 +1083,8 @@ I0B31UZfYPr/P33nTfL//yNALz8W6v///z8t+c9c
   ContentSelectable->True,
   ImageSize->{790., Automatic},
   PlotRangePadding->{6, 5}]], "Output",
- CellChangeTimes->{3.6899999593801823`*^9, 3.690004488143213*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Export", "[", 
-  RowBox[{
-  "\"\<C:\\\\dev\\\\git\\\\Math227AProject\\\\detModelFigs\\\\\
-bifurcationPlotRvalue.png\>\"", ",", "%127", ",", "\"\<PNG\>\""}], 
-  "]"}]], "Input",
- NumberMarks->False],
-
-Cell[BoxData["\<\"C:\\\\dev\\\\git\\\\Math227AProject\\\\detModelFigs\\\\\
-bifurcationPlotRvalue.png\"\>"], "Output",
- CellChangeTimes->{3.690004535891944*^9}]
+ CellChangeTimes->{3.6899999593801823`*^9, 3.690004488143213*^9, 
+  3.690229590294171*^9}]
 }, Open  ]]
 },
 WindowSize->{1050, 828},
@@ -1192,33 +1103,18 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[558, 20, 306, 6, 30, "Input"],
 Cell[CellGroupData[{
-Cell[580, 22, 633, 19, 50, "Input"],
-Cell[1216, 43, 1869, 39, 374, "Output"]
+Cell[889, 30, 3503, 96, 145, "Input"],
+Cell[4395, 128, 13519, 266, 399, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3122, 87, 3043, 86, 126, "Input"],
-Cell[6168, 175, 13495, 266, 399, "Output"]
+Cell[17951, 399, 3679, 104, 183, "Input"],
+Cell[21633, 505, 16567, 298, 298, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19700, 446, 210, 5, 30, "Input"],
-Cell[19913, 453, 151, 2, 30, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[20101, 460, 3679, 104, 183, "Input"],
-Cell[23783, 566, 16541, 297, 298, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[40361, 868, 219, 6, 30, "Input"],
-Cell[40583, 876, 159, 2, 30, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[40779, 883, 3777, 108, 221, "Input"],
-Cell[44559, 993, 8591, 167, 274, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[53187, 1165, 221, 6, 30, "Input"],
-Cell[53411, 1173, 159, 2, 87, "Output"]
+Cell[38237, 808, 3777, 108, 221, "Input"],
+Cell[42017, 918, 8616, 168, 274, "Output"]
 }, Open  ]]
 }
 ]
