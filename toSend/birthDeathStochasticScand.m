@@ -33,7 +33,7 @@ initNum = floor(rand(numTraj,1)*5 + 2);
 %run the simulation
 [times,numWolves] = runStochBirthDeath(birthRate,deathRate,initNum,numSteps,numTraj);
 
-%Display the pre-1991 results
+%Display the pre-1991 results for all years
 tVals = 0:20;
 yInds = 1:21;
 figure
@@ -45,6 +45,20 @@ plot(tVals,maxTotalWolves(yInds),'k','LineWidth',3)
 xlabel('Years since winter 1980-1981');
 ylabel('Number of Wolves');
 axis([0 20 0 inf]);
+
+
+%Display the pre-1991 results for first 10 years
+tVals = 0:10;
+yInds = 1:11;
+figure
+hold on
+stairs(times',numWolves')
+plot(tVals,minTotalWolves(yInds),'k','LineWidth',3)
+plot(tVals,meanTotalWolves(yInds),'k--','LineWidth',3)
+plot(tVals,maxTotalWolves(yInds),'k','LineWidth',3)
+xlabel('Years since winter 1980-1981');
+ylabel('Number of Wolves');
+axis([0 10 0 inf]);
 
 %{
 This runs the simulation starting from
