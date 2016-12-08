@@ -1,7 +1,11 @@
+%{
+Does the deterministic exponential fits
+on the Scandinavian wolves
+%}
+
 %here is the Scandanavian wolf data
 winterYearStart = 1980:2000;
 winterYearEnd = winterYearStart+1;
-
 minTotalWolves = ...
     [2 3 3 8 6 7 5 6 10 8 8 16 19 ...
     16 29 34 41 50 62 67 87];
