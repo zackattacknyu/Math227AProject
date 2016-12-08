@@ -1,15 +1,15 @@
 function [ times,numWolves ] = runStochBirthDeathImmigration( ...
     birthRate,deathRate,immRate,...
     initNumWolves,numSteps,numTraj )
-%RUNSTOCHBIRTHDEATH Summary of this function goes here
-%   Detailed explanation goes here
+%RUNSTOCHBIRTHDEATH 
+% runs Gillespie algorithm for our case 
+% if immigration is
+% present
 
-%This is the Proof of Concept for the stochastic modelling code
-% it re-creates the Figure 5.9 from Section 5.6.2 of the de Vries book 
 
 times = zeros(numTraj,numSteps); %time point
 numWolves = zeros(numTraj,numSteps); %current state at each point
-numWolves(:,1) = initNumWolves; %to reproduce book example
+numWolves(:,1) = initNumWolves; 
 
 times(:,1) = 0;
 deltaNbyState = [-1 1];
@@ -21,8 +21,7 @@ for j = 1:numTraj
     
     for i = 2:numSteps
 
-        %3 events are 1 birth, 1 death, no change
-        %   probs from (5.57) in 5.6.2 of de Vries book
+        
         probBirth = birthRate*curN+immRate;
         probDeath = deathRate*curN;
 
