@@ -1,22 +1,22 @@
 %pre-1991 data from stochastic model
+%{
 birthRate = 0.075;
 deathRate = 0.045;
 n0value = 4;
-
+%}
 
 %post-1991 data from stochastic model
 %{
-deathRate=0.03;
-birthRate=0.23;
+deathRate=0.01;
+birthRate=0.21;
 n0value = 18;
 %}
 
-%all data from stochastic model
-%{
-birthRate = 0.165;
-deathRate = 0.01;
-n0value = 4;
-%}
+%yellowstone wolves
+birthRate = 0.2813;
+deathRate = 0.0883;
+n0value = 21;
+
 
 rValue = birthRate-deathRate;
 tt = 0:0.01:20;

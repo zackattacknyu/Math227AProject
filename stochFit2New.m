@@ -79,7 +79,7 @@ axis([0 20 0 80]);
 %%
 
 %now include immigration in post-1991 data
-immRate = 2.5;
+immRate = 4.75;
 initNum=8;
 
 [times2,numWolves2] = runStochBirthDeathImmigration(birthRate,deathRate,immRate,...
