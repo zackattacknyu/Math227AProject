@@ -21,43 +21,40 @@ meanTotalWolves(14)=28; %only mean value to be input manually
 meanWolvesPre1991 = meanTotalWolves(1:11);
 meanWolvesPost1991 = meanTotalWolves(12:end);
 
+%before and after 1991, values for time t
 tValsPre91 = (0:10)';
-ffPre91 = fit(tValsPre91,meanWolvesPre1991','exp1');
-n0pre91 = ffPre91.a; %initial population
-
 tValsPost91 = (0:9)';
+
+%does exponential fit on pre-1991 data
+ffPre91 = fit(tValsPre91,meanWolvesPre1991','exp1');
+
+%does exponential fit on post-1991 data
 ffPost91 = fit(tValsPost91,meanWolvesPost1991','exp1');
-n0post91 = ffPost91.a; %initial population
 
-tValsAll = (0:20)';
-ffAll = fit(tValsAll,meanTotalWolves','exp1');
-n0All = ffAll.a; %initial population
+%initial population values from exponential fit
+n0pre91 = ffPre91.a; 
+n0post91 = ffPost91.a; 
 
-%reproductive fitness coeff. r = bb-dd where
-%   bb is birth rate, dd is death rate
+%reproductive fitness coeff. r = b-d where
+%   b is birth rate, d is death rate
 rValuePre91 = ffPre91.b; 
 rValuePost91 = ffPost91.b; 
-rValueAll = ffAll.b;
 
-xxPlot = (0:0.01:10);
-yyPlot = n0pre91.*exp(rValuePre91.*xxPlot);
-
-xxPlot2 = (0:0.01:9);
-yyPlot2 = n0post91.*exp(rValuePost91.*xxPlot2);
-
+%makes the pre-1991 exponential graph values
 xxPlotA = (0:0.01:10);
 yyPlotA = n0pre91.*exp(rValuePre91.*xxPlotA);
 
+%makes the post-1991 exponential graph values
 xxPlot2A = (11:0.01:20);
 yyPlot2A = n0post91.*exp(rValuePost91.*(xxPlot2A-11));
 
+%makes the pre-1991 exponential graph values for whole time period
+% assuming no immigration
 xxPlot3 = (0:0.01:20);
 yyPlot3 = n0pre91.*exp(rValuePre91.*xxPlot3);
 
-xxPlot4 = (0:0.01:20);
-yyPlot4 = n0All.*exp(rValueAll.*xxPlot4);
-
-
+%makes the pre-1991 exponential graph values
+% with assumption of immigration
 immBeta2 = 2.5;
 immBeta3 = 4.75;
 meanWolvesIn1990 = 8;
@@ -66,10 +63,10 @@ yyPlot3Imm2 = meanWolvesIn1990.*exp(rValuePre91.*(xxPlot3-10)) + ...
 yyPlot3Imm3 = meanWolvesIn1990.*exp(rValuePre91.*(xxPlot3-10)) + ...
     (immBeta3/rValuePre91).*exp(rValuePre91.*(xxPlot3-10)) - immBeta3/rValuePre91;
 
-%plot all data
+%plot pre-1991 and post-1991 fits
 figure
 hold on
-plot(tValsAll,meanTotalWolves,'b.');
+plot(0:20,meanTotalWolves,'b.');
 plot(xxPlotA,yyPlotA,'g-');
 plot(xxPlot2A,yyPlot2A,'r-');
 axis([0 20 0 100]);
@@ -79,6 +76,7 @@ xlabel('Years Since Winter 1980-1981');
 ylabel('Mean Number of Wolves');
 hold off
 
+%plot model assuming immigration has occurred
 figure
 hold on
 plot(0:20,meanTotalWolves,'b.');
